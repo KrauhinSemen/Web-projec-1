@@ -12,7 +12,7 @@ let enemy_card;
 let index_deck = 0;
 
 let card_on_field = [];
-let card_on_field_2_level = [] // Это карты, которые покрывают другие
+let card_on_field_2_level = [];
 let table_current = [];
 
 let current_card = null;
@@ -34,7 +34,7 @@ function card_distribution() {
             player_card.style.zIndex = '1';
             player_card.id = deck_info[index_deck];
             index_deck++;
-            check_colode();
+            check_deck();
         }
         if (index_deck > 35) break;
 
@@ -45,11 +45,11 @@ function card_distribution() {
             enemy_info_split.push(deck_info[index_deck]);
             enemy_card.id = deck_info[index_deck];
             index_deck++;
-            check_colode();
+            check_deck();
         }
     }
 
-    if (index_deck > 35) { // Определение победителя
+    if (index_deck > 35) {
         if (enemy_info_split.length === 0 && player_info_split.length === 0) {
             get_winner('В ожесточённой борьбе умов победителем никто не вышел');
             return;
@@ -78,7 +78,6 @@ player_info.textContent = enemy_info_split.join(' ');
 
 console.log(`Карты противника: |${enemy_info.textContent}|`)
 
-// Распределение, кто первый ходит
 let coin = Math.floor(Math.random() * 2); // 0 - player, 1 - enemy
 
 if (coin === 0) {
