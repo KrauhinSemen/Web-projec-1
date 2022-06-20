@@ -130,15 +130,15 @@ function end_turn_attack() {
     for (let i = 1; i < card_on_field_2_level.length + 1; i++) {
 
         let above_card = document.querySelector(`img.field_card_${i}1`);
-        above_card.src = `images/${card_on_field_2_level[i-1]}.png`;
+        above_card.src = `images/${card_on_field_2_level[i - 1]}.png`;
         above_card.style.opacity = '1';
         above_card.style.zIndex = '1';
-        above_card.id = card_on_field_2_level[i-1];
+        above_card.id = card_on_field_2_level[i - 1];
 
         let field_card = document.querySelector(`img.field_card_${i}`);
         field_card.style.zIndex = '0';
 
-        let enemy_card = document.getElementById(card_on_field_2_level[i-1]);
+        let enemy_card = document.getElementById(card_on_field_2_level[i - 1]);
         enemy_card.style.opacity = '0';
     }
 
@@ -150,7 +150,7 @@ function end_turn_attack() {
 
     if (enemy_pass_good) {
         document.querySelector('img.bito_card').style.opacity = '1';
-        good_for_enemy(false,true)
+        good_for_enemy(false, true)
         return;
     }
 

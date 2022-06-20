@@ -181,6 +181,7 @@ function move_player_current_card(event) {
 
         document.querySelector(`img.${current_card.className}`).style.opacity = '0';
         document.querySelector(`img.${current_card.className}`).style.top = '75%';
+        document.querySelector(`img.${current_card.className}`).style.display = 'none'
 
         document.querySelector(`img.${field_card_1.className}`).style.zIndex = '0';
 

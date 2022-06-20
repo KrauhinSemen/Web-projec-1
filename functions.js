@@ -1,8 +1,8 @@
 function change_deck_counter() { // Изменение счётчика оставшихся в колоде карт
     let counter = document.querySelector('p.deck_counter');
     let count_cards = 36 - index_deck;
-    if ((count_cards>20 || count_cards <10) && count_cards%10 === 1) counter.textContent = `${count_cards} карта`;
-    else if ((count_cards>20 || count_cards <10) && count_cards%10 < 5 &&  count_cards%10 > 1) counter.textContent = `${count_cards} карты`;
+    if ((count_cards > 20 || count_cards < 10) && count_cards % 10 === 1) counter.textContent = `${count_cards} карта`;
+    else if ((count_cards > 20 || count_cards < 10) && count_cards % 10 < 5 && count_cards % 10 > 1) counter.textContent = `${count_cards} карты`;
     else counter.textContent = `${count_cards} карт`;
 }
 
@@ -26,8 +26,8 @@ function check_colode() {
     else if (count_cards <= 12) document.querySelector('img.deck').src = 'images/coloda.png';
     else if (count_cards <= 18) document.querySelector('img.deck').src = 'images/coloda.png';
     else if (count_cards <= 24) document.querySelector('img.deck').src = 'images/coloda.png';
-    if (index_deck === 35) document.querySelector('img.deck').style.display ='none';
-    if (index_deck === 36) document.querySelector('img.trump_card').style.display ='none';
+    if (index_deck === 35) document.querySelector('img.deck').style.display = 'none';
+    if (index_deck === 36) document.querySelector('img.trump_card').style.display = 'none';
 }
 
 function location_card_on_field() {
@@ -55,7 +55,7 @@ function location_cards(player_or_enemy) {
     let current_stage;
 
     if (player_or_enemy === 'player') {
-        count = player_info_split.length ;
+        count = player_info_split.length;
     } else {
         count = enemy_info_split.length;
     }
@@ -81,9 +81,9 @@ function location_cards(player_or_enemy) {
             break
     }
 
-    current_stage = 45 + (count - 1) * step ;
+    current_stage = 45 + (count - 1) * step;
 
-    for (let i = 1; i < count + 1; i++ ) {
+    for (let i = 1; i < count + 1; i++) {
         let card = document.querySelector(`img.${player_or_enemy}_card_${i}`);
         if (card.style.opacity !== '0') {
             card.style.right = `${current_stage}%`;
@@ -116,10 +116,10 @@ function redefinition_styles(is_player) {
 
     while (true) {
         if (is_player) {
-            enemy_or_player_card = document.querySelector(`img.player_card_${i+1}`);
+            enemy_or_player_card = document.querySelector(`img.player_card_${i + 1}`);
             enemy_or_player_info = player_info_split;
         } else {
-            enemy_or_player_card = document.querySelector(`img.enemy_card_${i+1}`);
+            enemy_or_player_card = document.querySelector(`img.enemy_card_${i + 1}`);
             enemy_or_player_info = enemy_info_split;
         }
 
@@ -132,7 +132,7 @@ function redefinition_styles(is_player) {
         } else {
             if (enemy_or_player_card === null) {
                 break
-            } else if (i > 5){
+            } else if (i > 5) {
                 enemy_or_player_card.remove();
             } else {
                 enemy_or_player_card.style.opacity = '0';
@@ -266,7 +266,7 @@ function good_for_player(is_attack, is_player_takes) { // хорошее отб�
     while (!(no_cards[0] && no_cards[1])) {
         let player_card = document.querySelector(`img.player_card_${i}`);
         let field_card = document.querySelector(`img.field_card_${i}`);
-        let field_card_2 =  document.querySelector(`img.field_card_${i}1`);
+        let field_card_2 = document.querySelector(`img.field_card_${i}1`);
 
         if (player_card !== null) {
             player_card.removeEventListener('click', select_current_card);
