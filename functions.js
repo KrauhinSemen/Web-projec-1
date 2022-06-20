@@ -20,14 +20,15 @@ function change_display_player_cards() { // присваивает "style.displa
     }
 }
 
-function check_colode() {
+function check_deck() {
     let count_cards = 36 - index_deck;
-    if (count_cards <= 6) document.querySelector('img.deck').src = 'images/coloda.png';
-    else if (count_cards <= 12) document.querySelector('img.deck').src = 'images/coloda.png';
-    else if (count_cards <= 18) document.querySelector('img.deck').src = 'images/coloda.png';
-    else if (count_cards <= 24) document.querySelector('img.deck').src = 'images/coloda.png';
-    if (index_deck === 35) document.querySelector('img.deck').style.display = 'none';
-    if (index_deck === 36) document.querySelector('img.trump_card').style.display = 'none';
+
+    if (count_cards <= 6) document.querySelector('img.deck').src = 'images/deck.png';
+    else if (count_cards <= 12) document.querySelector('img.deck').src = 'images/deck.png';
+    else if (count_cards <= 18) document.querySelector('img.deck').src = 'images/deck.png';
+    else if (count_cards <= 24) document.querySelector('img.deck').src = 'images/deck.png';
+    if (index_deck === 35) document.querySelector('img.deck').style.display ='none';
+    if (index_deck === 36) document.querySelector('img.trump_card').style.display ='none';
 }
 
 function location_card_on_field() {
@@ -60,6 +61,8 @@ function location_cards(player_or_enemy) {
         count = enemy_info_split.length;
     }
 
+
+
     switch (true) {
         case count < 7:
             step = 3.5
@@ -81,8 +84,11 @@ function location_cards(player_or_enemy) {
             break
     }
 
-    current_stage = 45 + (count - 1) * step;
 
+    step = 21/count
+
+    current_stage = 45 + (count - 1) * step ;
+    
     for (let i = 1; i < count + 1; i++) {
         let card = document.querySelector(`img.${player_or_enemy}_card_${i}`);
         if (card.style.opacity !== '0') {
@@ -173,13 +179,14 @@ function new_cards_enemy_from_table(is_player) {
                     new_card.className = `player_card_${i}`
                     new_card.style.height = '165px';
                     new_card.style.wight = '115px';
-                    new_card.style.top = '75%';
+                    new_card.style.top = '70%';
                     new_card.style.right = '35%';
                     new_card.style.zIndex = '1';
                     new_card.src = `images/${card_field}.png`;
                 } else {
                     new_card.className = `enemy_card_${i}`
                     new_card.style.right = '35%';
+                    new_card.style.top = '5%';
                     new_card.src = `images/card_reverse.png`;
                 }
 

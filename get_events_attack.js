@@ -15,7 +15,7 @@ function move_player(event) {
     });
 
     if (card_on_field.length === 0 || numbers_on_table.indexOf(id.split('-')[0]) !== -1) {
-        for (let j = 1; j < 7; j++) { // Поиск первого незаполненого место карты поля для карты игрока
+        for (let j = 1; j < 7; j++) {
             let field_card = document.querySelector(`img.field_card_${j}`);
             if (field_card.style.opacity === "0" || field_card.style.opacity === '') {
                 field_card.src = event.target.currentSrc;
@@ -37,7 +37,7 @@ function move_field(event) {
 
     let id = event.target.id;
 
-    for (let j = 1; j < 36; j++) { // Поиск первого незаполненого место для карты игрока для карты поля
+    for (let j = 1; j < 36; j++) {
         let player_card = document.querySelector(`img.player_card_${j}`);
         if (player_card.style.opacity === "0" || player_card.style.opacity === '') {
             player_card.src = event.target.currentSrc;

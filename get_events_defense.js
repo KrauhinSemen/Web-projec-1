@@ -111,7 +111,7 @@ function end_turn_defense() {
     console.log('defense')
 
     if (current_card !== null) {
-        current_card.style.top = '75%';
+        current_card.style.top = '70%';
         current_card.style.zIndex = '0';
     }
 
@@ -157,11 +157,11 @@ function end_turn_defense() {
 function select_current_card(event) {
 
     if (current_card !== null) {
-        current_card.style.top = '75%';
+        current_card.style.top = '70%';
     }
 
     current_card = event.target;
-    current_card.style.top = '70%';
+    current_card.style.top = '65%';
 }
 
 function move_player_current_card(event) {
@@ -180,7 +180,8 @@ function move_player_current_card(event) {
         card_on_field_2_level.push(current_card.id);
 
         document.querySelector(`img.${current_card.className}`).style.opacity = '0';
-        document.querySelector(`img.${current_card.className}`).style.top = '75%';
+
+        document.querySelector(`img.${current_card.className}`).style.top = '70%';
         document.querySelector(`img.${current_card.className}`).style.display = 'none'
 
         document.querySelector(`img.${field_card_1.className}`).style.zIndex = '0';
